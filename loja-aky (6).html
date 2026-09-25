@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-MZ" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loja Aky | Produtos, Cursos, Ebooks e Soluções Digitais</title>
+<meta name="description" content="Encontre produtos, cursos, ebooks, receitas e soluções digitais na Loja Aky.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#F3EFE6; --paper:#0A0A09; --card:#17140F; --card2:#1E1A12; --gold:#D9A94F; --gold-deep:#E7BE6E;
+  --muted:#B0A793; --line:#312B1F; --danger:#E2604A; --ok:#4FAE7C;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:64px;height:100%;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Work Sans',sans-serif;line-height:1.5;height:100%;}
+h1,h2,h3,.brand{font-family:'Fraunces',serif;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;object-fit:cover;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+button{font-family:inherit;cursor:pointer;color:inherit;}
+input,select,textarea{font-family:inherit;}
+
+header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);}
+.headrow{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1180px;margin:0 auto;gap:16px;}
+.brand{font-size:22px;font-weight:600;}
+.brand span{color:var(--gold);}
+nav.mainnav{display:flex;gap:24px;font-size:15px;}
+nav.mainnav a{opacity:.85;padding:4px 0;border-bottom:2px solid transparent;}
+nav.mainnav a:hover{border-color:var(--gold);opacity:1;}
+#adminNavItem{color:var(--gold-deep);font-weight:600;}
+.headicons{display:flex;align-items:center;gap:10px;}
+.iconbtn{background:none;border:1px solid var(--line);width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.iconbtn:hover{border-color:var(--gold);}
+.hamburger{display:none;}
+#searchbox{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);padding:14px 20px;}
+#searchbox.open{display:block;}
+#searchbox form{max-width:1180px;margin:0 auto;display:flex;gap:8px;}
+#searchbox input{flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-size:15px;}
+#searchbox button{background:var(--ink);color:var(--paper);border:none;padding:0 18px;border-radius:10px;font-weight:600;}
+@media (max-width:820px){
+  nav.mainnav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;gap:0;border-bottom:1px solid var(--line);padding:6px 20px 14px;}
+  nav.mainnav.open{display:flex;}
+  nav.mainnav a{padding:10px 0;border-bottom:1px solid var(--line);}
+  .hamburger{display:flex;}
+}
+
+.hero{padding:52px 0 36px;border-bottom:1px solid var(--line);}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:600;max-width:16ch;margin:0 0 14px;line-height:1.1;}
+.hero p{color:var(--muted);font-size:17px;max-width:46ch;margin:0 0 22px;}
+.herobtns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+.btn{display:inline-block;padding:13px 22px;border-radius:10px;font-weight:600;font-size:14.5px;border:1px solid var(--ink);}
+.btn-solid{background:var(--gold);color:#181307;border-color:var(--gold);}
+.btn-outline{background:transparent;color:var(--ink);}
+.btn-solid:hover{background:var(--gold-deep);border-color:var(--gold-deep);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-deep);}
+.btn-danger{border-color:var(--danger);color:var(--danger);background:transparent;}
+.btn-ghost{border-color:var(--line);background:var(--card);color:var(--ink);}
+.searchhero{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;}
+.searchhero p{margin:0 0 12px;font-weight:600;font-size:15px;color:var(--muted);}
+.searchhero form{display:flex;gap:10px;flex-wrap:wrap;}
+.searchhero input{flex:1;min-width:220px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font-size:15px;}
+.searchhero button{background:var(--gold);color:#181307;border:none;padding:0 22px;border-radius:10px;font-weight:600;font-size:15px;}
+
+section.block{padding:44px 0;border-bottom:1px solid var(--line);}
+.blockhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+.blockhead h2{font-size:23px;font-weight:600;margin:0;}
+.resultcount{color:var(--muted);font-size:14px;}
+
+.catrow{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;}
+.catchip{flex:0 0 auto;padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;background:var(--card);white-space:nowrap;}
+.catchip.active{background:var(--gold);color:#181307;border-color:var(--gold);}
+
+.filterrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:20px;}
+.filterrow select{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-size:14px;}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:700px){.grid{grid-template-columns:repeat(2,1fr);gap:12px;}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease;position:relative;}
+.card:hover{transform:translateY(-3px);}
+.thumb{aspect-ratio:1/1;background:linear-gradient(135deg,var(--card2),var(--paper));display:flex;align-items:center;justify-content:center;font-size:34px;position:relative;}
+.thumb img{width:100%;height:100%;}
+.thumb .flag{position:absolute;top:8px;right:8px;font-size:16px;}
+.badge{position:absolute;top:8px;left:8px;background:var(--gold);color:#181307;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.03em;}
+.cardbody{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.cardtag{font-size:11px;color:var(--gold-deep);font-weight:600;}
+.cardname{font-size:14.5px;font-weight:600;line-height:1.3;}
+.carddesc{font-size:12.5px;color:var(--muted);flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.cardprice{font-size:13px;font-weight:700;color:var(--gold-deep);}
+.cardbtnrow{display:flex;gap:6px;margin-top:6px;}
+.cardbtn{flex:1;text-align:center;padding:9px;border:1px solid var(--ink);border-radius:8px;font-size:12.5px;font-weight:600;background:none;color:var(--ink);}
+.cardbtn:hover{background:var(--ink);color:var(--paper);}
+.cardbtn.edit{border-color:var(--gold);color:var(--gold-deep);}
+.cardbtn.del{border-color:var(--danger);color:var(--danger);}
+.empty{padding:50px 10px;text-align:center;color:var(--muted);grid-column:1/-1;}
+.empty .btn{margin-top:14px;}
+
+.svcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media (max-width:820px){.svcgrid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:500px){.svcgrid{grid-template-columns:1fr;}}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;}
+.svc .ic{font-size:24px;margin-bottom:10px;}
+.svc h3{font-size:15.5px;margin:0 0 6px;}
+.svc p{font-size:13px;color:var(--muted);margin:0;}
+
+.about p{max-width:64ch;color:var(--muted);font-size:15.5px;}
+.contactgrid{display:flex;gap:16px;flex-wrap:wrap;}
+.contactcard{flex:1;min-width:240px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;}
+.contactcard h3{margin:0 0 8px;font-size:16px;}
+.contactcard p{margin:0 0 14px;color:var(--muted);font-size:14px;}
+
+footer{padding:40px 0 30px;}
+.footgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:24px;}
+.footcol h4{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px;}
+.footcol a{display:block;font-size:14px;padding:4px 0;}
+.footnote{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px;}
+
+.wafloat{position:fixed;bottom:env(safe-area-inset-bottom,16px);right:16px;background:#1E8E5A;color:#fff;padding:13px 18px;border-radius:999px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;box-shadow:0 8px 22px rgba(0,0,0,.4);z-index:40;}
+
+#detail,#admin{position:fixed;inset:0;background:var(--paper);z-index:100;overflow-y:auto;display:none;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+#detail.open,#admin.open{display:block;}
+.detailtop{position:sticky;top:0;background:var(--paper);border-bottom:1px solid var(--line);padding:14px 20px;display:flex;align-items:center;gap:12px;padding-top:calc(14px + env(safe-area-inset-top,0px));z-index:2;}
+.backbtn{border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:14px;background:var(--card);color:var(--ink);}
+.detailwrap{max-width:900px;margin:0 auto;padding:32px 20px 60px;}
+.dhero{aspect-ratio:16/9;border-radius:16px;background:linear-gradient(135deg,var(--card2),var(--paper));display:flex;align-items:center;justify-content:center;font-size:70px;margin-bottom:24px;overflow:hidden;}
+.dhero img{width:100%;height:100%;}
+.dtag{color:var(--gold-deep);font-weight:600;font-size:13px;margin-bottom:8px;}
+.dtitle{font-size:clamp(24px,4vw,34px);font-weight:600;margin:0 0 6px;}
+.dcountry{color:var(--muted);font-size:14px;margin-bottom:20px;}
+.dsection h3{font-size:16px;margin:24px 0 8px;}
+.dsection p{color:var(--muted);font-size:15px;}
+.dbuy{display:block;text-align:center;margin-top:28px;padding:16px;background:var(--gold);color:#181307;border-radius:12px;font-weight:700;font-size:16px;}
+.dnote{text-align:center;font-size:12.5px;color:var(--muted);margin-top:10px;}
+.related{margin-top:40px;}
+.related h3{font-size:16px;margin-bottom:14px;}
+
+/* admin */
+.adminnav{display:flex;gap:8px;flex-wrap:wrap;padding:14px 20px;max-width:1180px;margin:0 auto;border-bottom:1px solid var(--line);}
+.adminnav button{padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:13.5px;}
+.adminnav button.active{background:var(--gold);color:#181307;border-color:var(--gold);}
+.adminwrap{max-width:1000px;margin:0 auto;padding:28px 20px 60px;}
+.adminwrap h2{font-size:22px;margin:0 0 6px;}
+.kpirow{display:flex;gap:14px;flex-wrap:wrap;margin:20px 0;}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;min-width:130px;}
+.kpi b{display:block;font-size:26px;color:var(--gold-deep);}
+.kpi span{font-size:12.5px;color:var(--muted);}
+.listrow{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
+.listrow .ic{font-size:22px;width:36px;text-align:center;}
+.listrow .info{flex:1;min-width:0;}
+.listrow .info b{font-size:14px;display:block;}
+.listrow .info span{font-size:12px;color:var(--muted);}
+.listrow .acts{display:flex;gap:6px;flex-wrap:wrap;}
+.smallbtn{padding:7px 11px;border-radius:7px;font-size:12.5px;border:1px solid var(--line);background:var(--paper);}
+.addbar{display:flex;justify-content:space-between;align-items:center;margin:18px 0;flex-wrap:wrap;gap:10px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:600;}
+.field input,.field select,.field textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink);font-size:14.5px;}
+.field textarea{min-height:80px;resize:vertical;}
+.fieldrow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media (max-width:600px){.fieldrow{grid-template-columns:1fr;}}
+.checkline{display:flex;align-items:center;gap:8px;font-size:14px;}
+.formbtns{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;}
+.gate{padding:70px 20px;text-align:center;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headrow">
+    <a href="#home" class="brand" onclick="closeAll()">LOJA <span>AKY</span></a>
+    <nav class="mainnav" id="mainnav">
+      <a href="#home" onclick="closeAll()">INÍCIO</a>
+      <a href="#produtos" onclick="closeAll()">PRODUTOS</a>
+      <a href="#categorias" onclick="closeAll()">CATEGORIAS</a>
+      <a href="#servicos" onclick="closeAll()">SERVIÇOS</a>
+      <a href="#sobre" onclick="closeAll()">SOBRE</a>
+      <a href="#contactos" onclick="closeAll()">CONTACTOS</a>
+      <a href="#" id="adminNavItem" style="display:none;" onclick="openAdmin();return false;">⚙ ADMIN</a>
+    </nav>
+    <div class="headicons">
+      <button class="iconbtn" onclick="toggleSearch()" aria-label="Pesquisar">🔍</button>
+      <button class="iconbtn hamburger" onclick="toggleNav()" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div id="searchbox">
+    <form onsubmit="return doHeaderSearch(event)">
+      <input id="headerSearchInput" type="text" placeholder="Pesquisar produtos, cursos, ebooks e muito mais...">
+      <button type="submit">PESQUISAR</button>
+    </form>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero wrap">
+    <h1>Encontre o que você procura na Loja Aky</h1>
+    <p>Produtos, cursos, ebooks e soluções digitais selecionados para você.</p>
+    <div class="herobtns">
+      <a href="#produtos" class="btn btn-solid" onclick="closeAll()">VER PRODUTOS</a>
+      <a href="#categorias" class="btn btn-outline" onclick="closeAll()">EXPLORAR CATEGORIAS</a>
+    </div>
+    <div class="searchhero">
+      <p>Procure o produto que você precisa</p>
+      <form onsubmit="return doHeroSearch(event)">
+        <input id="heroSearchInput" type="text" placeholder="🔍 O que você está procurando?">
+        <button type="submit">PESQUISAR</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="block" id="categorias">
+    <div class="wrap">
+      <div class="blockhead"><h2>Explorar categorias</h2></div>
+      <div class="catrow" id="catrow"></div>
+    </div>
+  </section>
+
+  <section class="block" id="produtos">
+    <div class="wrap">
+      <div class="blockhead">
+        <h2 id="prodHeading">Produtos em destaque</h2>
+        <span class="resultcount" id="resultcount"></span>
+      </div>
+      <div class="filterrow">
+        <select id="sortSelect" onchange="render()">
+          <option value="recent">Mais recentes</option>
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+        </select>
+        <button class="catchip" onclick="clearFilters()">Limpar filtros</button>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="block" id="servicos">
+    <div class="wrap">
+      <div class="blockhead"><h2>Serviços da Loja Aky</h2></div>
+      <div class="svcgrid" id="svcgrid"></div>
+    </div>
+  </section>
+
+  <section class="block about" id="sobre">
+    <div class="wrap">
+      <div class="blockhead"><h2>Sobre a Loja Aky</h2></div>
+      <p>A Loja Aky é uma loja digital criada para facilitar a descoberta de produtos, conteúdos, serviços e soluções disponíveis online. Nosso objetivo é reunir produtos selecionados em um único espaço, permitindo que os visitantes pesquisem e encontrem aquilo que procuram de forma simples e organizada.</p>
+    </div>
+  </section>
+
+  <section class="block" id="contactos" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="blockhead"><h2>Contactos</h2></div>
+      <p style="color:var(--muted);margin-top:-8px;">Precisa de ajuda ou tem alguma dúvida? Entre em contacto conosco.</p>
+      <div class="contactgrid">
+        <div class="contactcard">
+          <h3>WhatsApp — Falar com suporte</h3>
+          <p>Se tiver dúvidas sobre algum produto ou precisar de suporte, fale conosco pelo WhatsApp.</p>
+          <a class="btn btn-solid" target="_blank" rel="noopener" href="https://wa.me/258857886418?text=Ol%C3%A1%2C%20encontrei%20a%20Loja%20Aky%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20produto.">FALAR NO WHATSAPP</a>
+        </div>
+        <div class="contactcard">
+          <h3>Instagram — @lojaaky</h3>
+          <p>Siga a Loja Aky no Instagram para acompanhar novidades.</p>
+          <a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.instagram.com/lojaaky/">SEGUIR NO INSTAGRAM</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="wafloat" target="_blank" rel="noopener" href="https://wa.me/258857886418?text=Ol%C3%A1%2C%20encontrei%20a%20Loja%20Aky%20e%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20um%20produto.">💬 Falar com suporte</a>
+
+<div id="detail">
+  <div class="detailtop"><button class="backbtn" onclick="closeDetail()">← Voltar para produtos</button></div>
+  <div class="detailwrap" id="detailbody"></div>
+</div>
+
+<div id="admin">
+  <div class="detailtop"><button class="backbtn" onclick="closeAdmin()">← Voltar à loja</button></div>
+  <div class="adminnav" id="adminnav"></div>
+  <div class="adminwrap" id="adminbody"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footgrid">
+      <div class="footcol">
+        <h4>Loja Aky</h4>
+        <p style="color:var(--muted);font-size:13.5px;max-width:26ch;">Produtos, serviços e soluções digitais ao seu alcance.</p>
+      </div>
+      <div class="footcol">
+        <h4>Navegação</h4>
+        <a href="#home" onclick="closeAll()">Início</a>
+        <a href="#produtos" onclick="closeAll()">Produtos</a>
+        <a href="#categorias" onclick="closeAll()">Categorias</a>
+        <a href="#servicos" onclick="closeAll()">Serviços</a>
+        <a href="#sobre" onclick="closeAll()">Sobre</a>
+        <a href="#contactos" onclick="closeAll()">Contactos</a>
+      </div>
+      <div class="footcol">
+        <h4>Redes e suporte</h4>
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/lojaaky/">Instagram: @lojaaky</a>
+        <a target="_blank" rel="noopener" href="https://wa.me/258857886418">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footnote">
+      <p>Alguns links neste site são links de afiliado. A Loja Aky pode receber uma comissão quando uma compra é realizada através deles, sem custo adicional para o cliente.</p>
+      <p>© 2026 Loja Aky. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- seed data (used only if the backend has no products yet) ---------- */
+const SEED_PRODUCTS = [
+ {id:"p1",name:"Desafio do Emagrecimento Real",desc:"Desafio do emagrecimento real e testado em Moçambique.",descFull:"",cat:"Saúde e Bem-estar",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/4010102?ref=AFFIFSJHMZT",icon:"💪",img:"",price:null,badge:"",featured:false,tags:"emagrecimento saude dieta"},
+ {id:"p2",name:"Curso Completo de Importação",desc:"Curso completo de importação em Moçambique para fazer negócio.",descFull:"",cat:"Importação",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/4287072?ref=AFFVX6AURKH",icon:"🚢",img:"",price:null,badge:"",featured:false,tags:"importacao china negocio"},
+ {id:"p3",name:"Como Ganhar Dinheiro no Mercado Digital Brasileiro",desc:"Como ganhar dinheiro no mercado digital brasileiro.",descFull:"",cat:"Dinheiro e Negócios",country:"Brasil",flag:"🇧🇷",link:"https://checkout.escalepay.com/5861118?ref=AFFPAUUOJGC",icon:"💰",img:"",price:null,badge:"",featured:false,tags:"dinheiro mercado digital brasil"},
+ {id:"p4",name:"Guia Antes de Namorar/Casar",desc:"Antes de chegar ao altar/namorar, leia esta guia para brasileiros.",descFull:"",cat:"Relacionamentos",country:"Brasil",flag:"🇧🇷",link:"https://checkout.escalepay.com/7089383?ref=AFFHVSZA5QZ",icon:"💌",img:"",price:null,badge:"",featured:false,tags:"relacionamento namoro casamento"},
+ {id:"p5",name:"Mega Start no EscalePay",desc:"Mega start no EscalePay para vender produto.",descFull:"",cat:"Empreendedorismo",country:"",flag:"🌍",link:"https://checkout.escalepay.com/1124413?ref=AFF37TCQ71L",icon:"🚀",img:"",price:null,badge:"",featured:false,tags:"escalepay vender afiliado negocio"},
+ {id:"p6",name:"Bolo de Chocolate com Calda Cremosa (Natal)",desc:"Bolo de chocolate com calda cremosa para o Natal, no Brasil.",descFull:"",cat:"Receitas",country:"Brasil",flag:"🇧🇷",link:"https://checkout.escalepay.com/1294571",icon:"🍰",img:"",price:null,badge:"",featured:false,tags:"bolo chocolate natal receita"},
+ {id:"p7",name:"Bolo Crocante — Receitas de Bolos Doces e Salgados",desc:"Receitas de bolos doces e salgados.",descFull:"",cat:"Receitas",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/1135757?ref=AFFBVBJPEVM",icon:"🍰",img:"",price:null,badge:"",featured:false,tags:"bolo receita doces salgados"},
+ {id:"p8",name:"Bolo de Chocolate Calda Cremosa (Família)",desc:"Bolo de chocolate com calda cremosa para a família moçambicana.",descFull:"",cat:"Receitas",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/8993813",icon:"🍰",img:"",price:null,badge:"",featured:false,tags:"bolo chocolate familia receita"},
+ {id:"p9",name:"Importação da China — Como Funciona?",desc:"Importação da China: como funciona?",descFull:"",cat:"Importação",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/2758933?ref=AFFFFIMSJF9",icon:"🚢",img:"",price:null,badge:"",featured:false,tags:"importacao china negocio"},
+ {id:"p10",name:"Marketing Digital do Zero ao Resultado Real",desc:"Marketing digital do zero até o resultado real.",descFull:"",cat:"Marketing Digital",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/3430104?ref=AFFEC6LLKJW",icon:"📱",img:"",price:null,badge:"",featured:false,tags:"marketing digital"},
+ {id:"p11",name:"Coleção Premium",desc:"Coleção Premium em Angola.",descFull:"",cat:"Diversos",country:"Angola",flag:"🇦🇴",link:"https://checkout.escalepay.com/4650539?ref=AFF0BIXMXEY",icon:"✨",img:"",price:null,badge:"",featured:false,tags:"colecao premium angola"},
+ {id:"p12",name:"Guia de Educação Financeira",desc:"Guia de educação financeira em Moçambique.",descFull:"",cat:"Dinheiro e Negócios",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/1797512?ref=AFFBSKIS4CZ",icon:"💰",img:"",price:null,badge:"",featured:false,tags:"educacao financeira dinheiro"},
+ {id:"p13",name:"Aprenda a Importar e Gastar Menos",desc:"Aprenda a importar e gastar menos dinheiro em Moçambique.",descFull:"",cat:"Importação",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/2203552?ref=AFFCTARFGHX",icon:"🚢",img:"",price:null,badge:"",featured:false,tags:"importacao dinheiro"},
+ {id:"p14",name:"Como Fazer Dinheiro com TikTok",desc:"Como fazer dinheiro com TikTok sem esforço.",descFull:"",cat:"Marketing Digital",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/2645902?ref=AFFAANSHQEG",icon:"📱",img:"",price:null,badge:"",featured:false,tags:"tiktok dinheiro marketing"},
+ {id:"p15",name:"365 Receitas Completas em Casa",desc:"365 receitas completas para fazer em casa.",descFull:"",cat:"Receitas",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/2140288?ref=AFF2PWGIRRS",icon:"🍰",img:"",price:null,badge:"",featured:false,tags:"receitas culinaria"},
+ {id:"p16",name:"Segredos do CapCut",desc:"Segredos do CapCut para editar vídeos e fotos em alta qualidade.",descFull:"",cat:"Tecnologia",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/1266678?ref=AFFJX255QCT",icon:"💻",img:"",price:null,badge:"",featured:false,tags:"capcut edicao video tecnologia"},
+ {id:"p17",name:"Receitas de Bolos Doces e Salgados Brasileiros",desc:"Receitas de bolos doces e salgados brasileiros.",descFull:"",cat:"Receitas",country:"Brasil",flag:"🇧🇷",link:"https://checkout.escalepay.com/3034179?ref=AFFZCOMGNMF",icon:"🍰",img:"",price:null,badge:"",featured:false,tags:"bolo receita brasil"},
+ {id:"p18",name:"Receita de Bolos Doces e Salgados",desc:"Receita de bolos doces e salgados.",descFull:"",cat:"Receitas",country:"Portugal",flag:"🇵🇹",link:"https://checkout.escalepay.com/3144970?ref=AFFVVPWVJFX",icon:"🍰",img:"",price:null,badge:"",featured:false,tags:"bolo receita portugal"},
+ {id:"p19",name:"Speed Vendas — Curso de Marketing Digital",desc:"Speed vendas: curso de marketing digital em Moçambique.",descFull:"",cat:"Marketing Digital",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/6026506?ref=AFFC2A0LCKR",icon:"📱",img:"",price:null,badge:"",featured:false,tags:"marketing digital vendas"},
+ {id:"p20",name:"Lovable Ilimitada",desc:"Lovable ilimitada em Angola.",descFull:"",cat:"Tecnologia",country:"Angola",flag:"🇦🇴",link:"https://checkout.escalepay.com/6384295?ref=AFFYBS0CBSY",icon:"💻",img:"",price:null,badge:"",featured:false,tags:"lovable tecnologia angola"},
+ {id:"p21",name:"Mentoria Completa (Programação)",desc:"Mentoria completa em programação, comandos e desenvolvimento.",descFull:"",cat:"Tecnologia",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/7709648?ref=AFFLCD6BMVM",icon:"💻",img:"",price:null,badge:"",featured:false,tags:"programacao mentoria desenvolvimento"},
+ {id:"p22",name:"Curso de Marketing Digital Real",desc:"Curso de marketing digital real para Portugal.",descFull:"",cat:"Marketing Digital",country:"Portugal",flag:"🇵🇹",link:"https://checkout.escalepay.com/7372459?ref=AFFYQRRVDBL",icon:"📱",img:"",price:null,badge:"",featured:false,tags:"marketing digital portugal"},
+ {id:"p23",name:"Universo Marketing Digital",desc:"Universo marketing digital em Moçambique.",descFull:"",cat:"Marketing Digital",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/8189906?ref=AFF1L99S15T",icon:"📱",img:"",price:null,badge:"",featured:false,tags:"marketing digital"},
+ {id:"p24",name:"Livro para Meninas Colorir",desc:"Livro para meninas colorir, em Moçambique.",descFull:"",cat:"Ebooks",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/1117641?ref=AFFP9FRZVSC",icon:"📚",img:"",price:null,badge:"",featured:false,tags:"livro colorir criancas"},
+ {id:"p25",name:"50 Receitas de Frango para Restaurantes",desc:"50 receitas de frango para quem deseja abrir um restaurante e alimentar a família.",descFull:"",cat:"Receitas",country:"Moçambique",flag:"🇲🇿",link:"https://checkout.escalepay.com/9757748?ref=AFFCNW4JAYF",icon:"🍗",img:"",price:null,badge:"",featured:false,tags:"frango receitas restaurante"}
+];
+const SEED_CATEGORIES = ["Saúde e Bem-estar","Importação","Dinheiro e Negócios","Relacionamentos","Empreendedorismo","Receitas","Marketing Digital","Diversos","Tecnologia","Ebooks"];
+const SEED_SERVICES = [
+ {id:"s1",icon:"📣",title:"Divulgação digital",desc:"Apoio na divulgação de produtos e conteúdos digitais.",link:""},
+ {id:"s2",icon:"🤝",title:"Suporte",desc:"Atendimento e ajuda para dúvidas sobre produtos.",link:"https://wa.me/258857886418"},
+ {id:"s3",icon:"💾",title:"Produtos digitais",desc:"Ebooks, cursos e materiais para download.",link:""},
+ {id:"s4",icon:"📊",title:"Soluções para negócios",desc:"Conteúdos voltados a quem quer empreender.",link:""}
+];
+
+let dbc=null, userc=null, isAdmin=false, backendOn=false;
+let PRODUCTS=[], CATEGORIES=[], SERVICES=[];
+let activeCat="TODOS", activeQuery="";
+
+function norm(s){return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+function slug(s){return norm(s).replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");}
+function esc(s){return (s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+async function boot(){
+  try{ dbc = await claude.use('db'); }catch(e){ dbc=null; }
+  try{ userc = await claude.use('user'); }catch(e){ userc=null; }
+  isAdmin = !!(userc && userc.canEdit && userc.canEdit());
+  document.getElementById('adminNavItem').style.display = isAdmin ? 'inline-block' : 'none';
+
+  if(dbc){
+    backendOn = true;
+    subscribeProducts();
+    subscribeCategories();
+    subscribeServices();
+  } else {
+    PRODUCTS = SEED_PRODUCTS.slice();
+    CATEGORIES = SEED_CATEGORIES.slice();
+    SERVICES = SEED_SERVICES.slice();
+    buildCatRow(); render(); renderServices();
+  }
+}
+
+function subscribeProducts(){
+  dbc.collection('products').onSnapshot(async snap=>{
+    if(snap.docs.length===0){
+      if(isAdmin){ for(const p of SEED_PRODUCTS){ try{ await dbc.doc('products/'+p.id).set(p); }catch(e){} } }
+      return;
+    }
+    PRODUCTS = snap.docs.map(d=>({id:d.id, ...d.data()}));
+    buildCatRow(); render();
+  });
+}
+function subscribeCategories(){
+  dbc.collection('categories').onSnapshot(async snap=>{
+    if(snap.docs.length===0){
+      if(isAdmin){ for(const c of SEED_CATEGORIES){ try{ await dbc.doc('categories/'+slug(c)).set({name:c}); }catch(e){} } }
+      return;
+    }
+    CATEGORIES = snap.docs.map(d=>d.data().name);
+    buildCatRow(); renderAdminIfOpen();
+  });
+}
+function subscribeServices(){
+  dbc.collection('services').onSnapshot(async snap=>{
+    if(snap.docs.length===0){
+      if(isAdmin){ for(const s of SEED_SERVICES){ try{ await dbc.doc('services/'+s.id).set(s); }catch(e){} } }
+      return;
+    }
+    SERVICES = snap.docs.map(d=>({id:d.id, ...d.data()}));
+    renderServices(); renderAdminIfOpen();
+  });
+}
+function renderAdminIfOpen(){ if(document.getElementById('admin').classList.contains('open')) adminNav(currentAdminView||'dashboard'); }
+
+/* ---------- public site ---------- */
+function buildCatRow(){
+  const cats = CATEGORIES.length ? CATEGORIES : [...new Set(PRODUCTS.map(p=>p.cat))].sort();
+  const row = document.getElementById('catrow');
+  const chips = ["TODOS", ...cats];
+  row.innerHTML = chips.map(c=>`<button class="catchip${c===activeCat?' active':''}" onclick="setCat('${c.replace(/'/g,"\\'")}')">${esc(c)}</button>`).join('');
+}
+function setCat(c){ activeCat=c; buildCatRow(); render(); document.getElementById('produtos').scrollIntoView({behavior:'smooth'}); }
+function clearFilters(){ activeCat="TODOS"; activeQuery=""; document.getElementById('heroSearchInput').value=""; document.getElementById('headerSearchInput').value=""; buildCatRow(); render(); }
+function doHeroSearch(e){ e.preventDefault(); activeQuery=document.getElementById('heroSearchInput').value; render(); document.getElementById('produtos').scrollIntoView({behavior:'smooth'}); return false; }
+function doHeaderSearch(e){ e.preventDefault(); activeQuery=document.getElementById('headerSearchInput').value; document.getElementById('heroSearchInput').value=activeQuery; render(); document.getElementById('produtos').scrollIntoView({behavior:'smooth'}); toggleSearch(); return false; }
+function toggleSearch(){ document.getElementById('searchbox').classList.toggle('open'); }
+function toggleNav(){ document.getElementById('mainnav').classList.toggle('open'); }
+
+function matches(p,q){
+  if(!q) return true;
+  const nq = norm(q);
+  const hay = norm([p.name,p.desc,p.descFull,p.cat,p.country,p.tags].join(' '));
+  return nq.split(/\s+/).filter(Boolean).every(t=>hay.includes(t));
+}
+function thumbHTML(p){
+  return p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" onerror="this.parentElement.innerHTML='${p.icon||'🛍️'}'">` : (p.icon||'🛍️');
+}
+function cardHTML(p, adminMode){
+  return `<div class="card">
+    <div class="thumb">${thumbHTML(p)}${p.badge?`<span class="badge">${esc(p.badge)}</span>`:''}<span class="flag">${p.flag||''}</span></div>
+    <div class="cardbody">
+      <div class="cardtag">${esc(p.cat)}</div>
+      <div class="cardname">${esc(p.name)}</div>
+      <div class="carddesc">${esc(p.desc)}</div>
+      ${p.price?`<div class="cardprice">${esc(p.price)}</div>`:''}
+      <div class="cardbtnrow">
+        ${adminMode
+          ? `<button class="cardbtn edit" onclick="openProductForm('${p.id}')">EDITAR</button><button class="cardbtn del" onclick="deleteProduct('${p.id}')">EXCLUIR</button>`
+          : `<button class="cardbtn" onclick="openDetail('${p.id}')">VER PRODUTO</button>`}
+      </div>
+    </div>
+  </div>`;
+}
+function render(){
+  const grid=document.getElementById('grid'), heading=document.getElementById('prodHeading'), count=document.getElementById('resultcount');
+  const sort=document.getElementById('sortSelect').value;
+  let list=PRODUCTS.filter(p=>(activeCat==="TODOS"||p.cat===activeCat)&&matches(p,activeQuery));
+  if(sort==="az") list.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(sort==="za") list.sort((a,b)=>b.name.localeCompare(a.name));
+  else list.sort((a,b)=> (b.featured?1:0)-(a.featured?1:0) || String(b.id).localeCompare(String(a.id)));
+  heading.textContent = activeQuery?`Resultados para "${activeQuery}"`:(activeCat==="TODOS"?"Produtos em destaque":activeCat);
+  count.textContent = list.length + (list.length===1?" produto":" produtos");
+  if(list.length===0){
+    grid.innerHTML = `<div class="empty"><p><strong>Nenhum produto encontrado.</strong></p><p>Experimente pesquisar por outro termo.</p><button class="btn btn-outline" onclick="clearFilters()">VER TODOS OS PRODUTOS</button></div>`;
+    return;
+  }
+  grid.innerHTML = list.map(p=>cardHTML(p,false)).join('');
+}
+function renderServices(){
+  document.getElementById('svcgrid').innerHTML = SERVICES.map(s=>`
+    <div class="svc">
+      <div class="ic">${s.icon||'✨'}</div>
+      <h3>${esc(s.title)}</h3>
+      <p>${esc(s.desc)}</p>
+      ${s.link?`<p style="margin-top:8px;"><a href="${esc(s.link)}" target="_blank" rel="noopener" style="color:var(--gold-deep);font-weight:600;font-size:13px;">Saber mais →</a></p>`:''}
+    </div>`).join('');
+}
+function openDetail(id){
+  const p=PRODUCTS.find(x=>String(x.id)===String(id)); if(!p) return;
+  const related=PRODUCTS.filter(x=>x.cat===p.cat && x.id!==p.id).slice(0,4);
+  document.getElementById('detailbody').innerHTML = `
+    <div class="dhero">${thumbHTML(p)}</div>
+    <div class="dtag">${esc(p.cat)}</div>
+    <h1 class="dtitle">${esc(p.name)}</h1>
+    <div class="dcountry">${p.flag||''} ${p.country?"Indicado para: "+esc(p.country):"Disponível internacionalmente"}${p.price?` · <strong style="color:var(--gold-deep);">${esc(p.price)}</strong>`:''}</div>
+    <div class="dsection"><h3>Sobre este produto</h3><p>${esc(p.descFull||p.desc)}</p></div>
+    <div class="dsection"><h3>Informações importantes</h3><p>Ao clicar em "Comprar agora" você será direcionado para a página do parceiro, onde a compra é concluída com segurança. Este é um link de afiliado da Loja Aky.</p></div>
+    <a class="dbuy" target="_blank" rel="noopener" href="${esc(p.link)}">COMPRAR AGORA</a>
+    <p class="dnote">Você será direcionado para o site do parceiro para concluir a compra.</p>
+    ${related.length?`<div class="related"><h3>Você também pode gostar</h3><div class="grid">${related.map(r=>cardHTML(r,false)).join('')}</div></div>`:''}
+  `;
+  document.getElementById('detail').classList.add('open'); window.scrollTo(0,0);
+}
+function closeDetail(){ document.getElementById('detail').classList.remove('open'); document.getElementById('mainnav').classList.remove('open'); }
+function closeAll(){ closeDetail(); closeAdmin(); }
+
+/* ---------- admin ---------- */
+let currentAdminView='dashboard';
+function openAdmin(){
+  if(!isAdmin){ return; }
+  document.getElementById('admin').classList.add('open'); window.scrollTo(0,0);
+  adminNav('dashboard');
+}
+function closeAdmin(){ document.getElementById('admin').classList.remove('open'); }
+function adminNav(view){
+  currentAdminView=view;
+  document.getElementById('adminnav').innerHTML = ['dashboard','produtos','categorias','servicos'].map(v=>
+    `<button class="${v===view?'active':''}" onclick="adminNav('${v}')">${({dashboard:'DASHBOARD',produtos:'PRODUTOS',categorias:'CATEGORIAS',servicos:'SERVIÇOS'})[v]}</button>`
+  ).join('');
+  const body=document.getElementById('adminbody');
+  if(!backendOn){
+    body.innerHTML = `<div class="gate"><h2>Backend não disponível</h2><p>Este visualizador não tem a conexão de dados ativada, então o painel funciona apenas em modo leitura aqui. Abra o artifact publicado no claude.ai com sua conta para gerenciar produtos.</p></div>`;
+    return;
+  }
+  if(view==='dashboard'){
+    body.innerHTML = `<h2>Dashboard</h2><p style="color:var(--muted);">Visão geral da Loja Aky.</p>
+      <div class="kpirow">
+        <div class="kpi"><b>${PRODUCTS.length}</b><span>Produtos</span></div>
+        <div class="kpi"><b>${CATEGORIES.length}</b><span>Categorias</span></div>
+        <div class="kpi"><b>${SERVICES.length}</b><span>Serviços</span></div>
+        <div class="kpi"><b>${PRODUCTS.filter(p=>p.featured).length}</b><span>Em destaque</span></div>
+      </div>`;
+  } else if(view==='produtos'){
+    body.innerHTML = `<div class="addbar"><h2 style="margin:0;">Produtos</h2><button class="btn btn-solid" onclick="openProductForm(null)">+ ADICIONAR NOVO PRODUTO</button></div>
+      <div id="adminProdList"></div>`;
+    document.getElementById('adminProdList').innerHTML = PRODUCTS.slice().sort((a,b)=>String(b.id).localeCompare(String(a.id))).map(p=>`
+      <div class="listrow"><div class="ic">${p.icon||'🛍️'}</div>
+        <div class="info"><b>${esc(p.name)}</b><span>${esc(p.cat)} · ${p.country?esc(p.country):'Internacional'}</span></div>
+        <div class="acts"><button class="smallbtn" onclick="openProductForm('${p.id}')">Editar</button><button class="smallbtn" style="color:var(--danger);" onclick="deleteProduct('${p.id}')">Excluir</button></div>
+      </div>`).join('') || '<p style="color:var(--muted);">Nenhum produto ainda.</p>';
+  } else if(view==='categorias'){
+    body.innerHTML = `<div class="addbar"><h2 style="margin:0;">Categorias</h2></div>
+      <div class="field" style="max-width:420px;"><label>Nova categoria</label>
+        <div style="display:flex;gap:8px;"><input id="newCatInput" placeholder="Ex: Cursos"><button class="btn btn-solid" onclick="addCategory()">Adicionar</button></div>
+      </div>
+      <div id="adminCatList"></div>`;
+    document.getElementById('adminCatList').innerHTML = CATEGORIES.map(c=>`
+      <div class="listrow"><div class="ic">🏷️</div><div class="info"><b>${esc(c)}</b><span>${PRODUCTS.filter(p=>p.cat===c).length} produto(s)</span></div>
+      <div class="acts"><button class="smallbtn" style="color:var(--danger);" onclick="removeCategory('${c.replace(/'/g,"\\'")}')">Remover</button></div></div>`).join('');
+  } else if(view==='servicos'){
+    body.innerHTML = `<div class="addbar"><h2 style="margin:0;">Serviços</h2><button class="btn btn-solid" onclick="openServiceForm(null)">+ ADICIONAR SERVIÇO</button></div>
+      <div id="adminSvcList"></div>`;
+    document.getElementById('adminSvcList').innerHTML = SERVICES.map(s=>`
+      <div class="listrow"><div class="ic">${s.icon||'✨'}</div><div class="info"><b>${esc(s.title)}</b><span>${esc(s.desc)}</span></div>
+      <div class="acts"><button class="smallbtn" onclick="openServiceForm('${s.id}')">Editar</button><button class="smallbtn" style="color:var(--danger);" onclick="deleteService('${s.id}')">Excluir</button></div></div>`).join('') || '<p style="color:var(--muted);">Nenhum serviço ainda.</p>';
+  }
+}
+
+let currentImgData = '';
+function openProductForm(id){
+  const p = id ? PRODUCTS.find(x=>String(x.id)===String(id)) : null;
+  currentImgData = p ? (p.img||'') : '';
+  const catOptions = CATEGORIES.map(c=>`<option value="${esc(c)}" ${p&&p.cat===c?'selected':''}>${esc(c)}</option>`).join('');
+  document.getElementById('adminbody').innerHTML = `
+    <h2>${p?'Editar produto':'Adicionar novo produto'}</h2>
+    <form id="prodForm" onsubmit="return saveProduct(event,'${id||''}')">
+      <div class="field"><label>Nome do produto</label><input required id="f_name" value="${p?esc(p.name):''}"></div>
+      <div class="fieldrow">
+        <div class="field"><label>Categoria</label><select id="f_cat">${catOptions}</select></div>
+        <div class="field"><label>País</label><input id="f_country" value="${p?esc(p.country):''}" placeholder="Ex: Moçambique"></div>
+      </div>
+      <div class="field"><label>Descrição curta (aparece no card)</label><input required id="f_desc" value="${p?esc(p.desc):''}"></div>
+      <div class="field"><label>Descrição completa (aparece na página do produto)</label><textarea id="f_descFull">${p?esc(p.descFull||p.desc):''}</textarea></div>
+      <div class="fieldrow">
+        <div class="field"><label>Preço (deixe vazio se não houver)</label><input id="f_price" value="${p&&p.price?esc(p.price):''}" placeholder="Ex: 500 MT"></div>
+        <div class="field"><label>Etiqueta</label><select id="f_badge">
+          <option value="" ${!(p&&p.badge)?'selected':''}>Nenhuma</option>
+          <option value="NOVO" ${p&&p.badge==='NOVO'?'selected':''}>NOVO</option>
+          <option value="OFERTA" ${p&&p.badge==='OFERTA'?'selected':''}>OFERTA</option>
+          <option value="DESTAQUE" ${p&&p.badge==='DESTAQUE'?'selected':''}>DESTAQUE</option>
+          <option value="POPULAR" ${p&&p.badge==='POPULAR'?'selected':''}>POPULAR</option>
+          <option value="RECOMENDADO" ${p&&p.badge==='RECOMENDADO'?'selected':''}>RECOMENDADO</option>
+        </select></div>
+      </div>
+      <div class="field"><label>Palavras-chave (separadas por espaço)</label><input id="f_tags" value="${p?esc(p.tags):''}"></div>
+      <div class="field"><label>Link de compra / afiliado</label><input required id="f_link" value="${p?esc(p.link):''}" placeholder="https://..."></div>
+      <div class="field"><label>Foto do produto (escolha do seu telemóvel)</label>
+        <input type="file" id="f_imgFile" accept="image/*" onchange="handleImgFile(event)">
+        <div id="imgPreviewWrap" style="margin-top:10px;${p&&p.img?'':'display:none;'}">
+          <img id="imgPreview" src="${p&&p.img?esc(p.img):''}" style="max-width:160px;border-radius:10px;border:1px solid var(--line);">
+          <div style="margin-top:6px;"><button type="button" class="smallbtn" onclick="clearImg()">Remover foto</button></div>
+        </div>
+      </div>
+      <div class="checkline"><input type="checkbox" id="f_featured" ${p&&p.featured?'checked':''}><label for="f_featured" style="margin:0;">Produto em destaque</label></div>
+      <div class="formbtns">
+        <button type="submit" class="btn btn-solid">SALVAR PRODUTO</button>
+        <button type="button" class="btn btn-ghost" onclick="adminNav('produtos')">CANCELAR / VOLTAR</button>
+      </div>
+    </form>`;
+}
+function handleImgFile(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    const img = new Image();
+    img.onload = function(){
+      const maxW = 700;
+      const scale = Math.min(1, maxW/img.width);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width*scale);
+      canvas.height = Math.round(img.height*scale);
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img,0,0,canvas.width,canvas.height);
+      currentImgData = canvas.toDataURL('image/jpeg',0.7);
+      document.getElementById('imgPreview').src = currentImgData;
+      document.getElementById('imgPreviewWrap').style.display='block';
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function clearImg(){
+  currentImgData='';
+  document.getElementById('imgPreviewWrap').style.display='none';
+  const fi=document.getElementById('f_imgFile'); if(fi) fi.value='';
+}
+async function saveProduct(e,id){
+  e.preventDefault();
+  const data = {
+    name: document.getElementById('f_name').value.trim(),
+    cat: document.getElementById('f_cat').value,
+    country: document.getElementById('f_country').value.trim(),
+    flag: "🌍",
+    desc: document.getElementById('f_desc').value.trim(),
+    descFull: document.getElementById('f_descFull').value.trim(),
+    price: document.getElementById('f_price').value.trim(),
+    badge: document.getElementById('f_badge').value,
+    tags: document.getElementById('f_tags').value.trim(),
+    link: document.getElementById('f_link').value.trim(),
+    img: currentImgData,
+    icon: "🛍️",
+    featured: document.getElementById('f_featured').checked
+  };
+  const newId = id || ('p_'+Date.now());
+  try{
+    await dbc.doc('products/'+newId).set(data);
+    adminNav('produtos');
+  }catch(err){ alert('Não foi possível salvar. Verifique sua conexão/permissão de administrador.'); }
+  return false;
+}
+async function deleteProduct(id){
+  if(!confirm('Excluir este produto?')) return;
+  try{ await dbc.doc('products/'+id).delete(); adminNav('produtos'); }catch(e){ alert('Não foi possível excluir.'); }
+}
+async function addCategory(){
+  const v = document.getElementById('newCatInput').value.trim();
+  if(!v) return;
+  try{ await dbc.doc('categories/'+slug(v)).set({name:v}); document.getElementById('newCatInput').value=''; }catch(e){ alert('Não foi possível adicionar.'); }
+}
+async function removeCategory(name){
+  if(!confirm('Remover esta categoria? Produtos existentes mantêm o nome antigo.')) return;
+  try{ await dbc.doc('categories/'+slug(name)).delete(); }catch(e){ alert('Não foi possível remover.'); }
+}
+function openServiceForm(id){
+  const s = id ? SERVICES.find(x=>String(x.id)===String(id)) : null;
+  document.getElementById('adminbody').innerHTML = `
+    <h2>${s?'Editar serviço':'Adicionar serviço'}</h2>
+    <form onsubmit="return saveService(event,'${id||''}')">
+      <div class="field"><label>Título</label><input required id="sv_title" value="${s?esc(s.title):''}"></div>
+      <div class="field"><label>Ícone (emoji)</label><input id="sv_icon" value="${s?esc(s.icon):''}" placeholder="Ex: 📣"></div>
+      <div class="field"><label>Descrição</label><textarea id="sv_desc">${s?esc(s.desc):''}</textarea></div>
+      <div class="field"><label>Link (opcional)</label><input id="sv_link" value="${s?esc(s.link):''}"></div>
+      <div class="formbtns">
+        <button type="submit" class="btn btn-solid">SALVAR SERVIÇO</button>
+        <button type="button" class="btn btn-ghost" onclick="adminNav('servicos')">CANCELAR / VOLTAR</button>
+      </div>
+    </form>`;
+}
+async function saveService(e,id){
+  e.preventDefault();
+  const data = { title:document.getElementById('sv_title').value.trim(), icon:document.getElementById('sv_icon').value.trim()||'✨', desc:document.getElementById('sv_desc').value.trim(), link:document.getElementById('sv_link').value.trim() };
+  const newId = id || ('s_'+Date.now());
+  try{ await dbc.doc('services/'+newId).set(data); adminNav('servicos'); }catch(e){ alert('Não foi possível salvar.'); }
+  return false;
+}
+async function deleteService(id){
+  if(!confirm('Excluir este serviço?')) return;
+  try{ await dbc.doc('services/'+id).delete(); adminNav('servicos'); }catch(e){ alert('Não foi possível excluir.'); }
+}
+
+boot();
+</script>
+</body>
+</html>
